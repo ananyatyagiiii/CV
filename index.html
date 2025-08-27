@@ -13,35 +13,54 @@
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="research.html">Research</a>
-  <a href="internship.html">Internship</a>
-  <a href="skills.html">Skills</a>
-  <a href="extracurriculars.html">Extracurriculars</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html#about-me-content">Home / About Me</a>
+  <a href="education.html#education-content">Education</a>
+  <a href="research.html#research-content">Research</a>
+  <a href="internship.html#internship-content">Internship</a>
+  <a href="skills.html#skills-content">Skills</a>
+  <a href="extracurriculars.html#extracurriculars-content">Extracurriculars</a>
+  <a href="contact.html#contact-content">Contact</a>
 </nav>
 
-<main>
-<section class="pop-section">
-  <div class="about-container">
-    <img src="myprofile.jpg" alt="Ananya Tyagi" class="profile-pic">
-    
-   <div class="about-text">
-  <h2>About Me</h2>
-  <p>BSc (Hons) Physics and Mathematics student at the University of Manchester (2024–2027) with a strong interest in theoretical physics, astrophysics, and problem-solving. I excel at analytical thinking, breaking down complex problems, and applying theoretical concepts to real-world situations.</p>
+<main id="about-me-content">
+  <section class="pop-section">
+    <div class="about-container">
+      <img src="myprofile.jpg" alt="Ananya Tyagi" class="profile-pic">
+      
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>BSc (Hons) Physics and Mathematics student at the University of Manchester (2024–2027) with a strong interest in theoretical physics, astrophysics, and problem-solving. I excel at analytical thinking, breaking down complex problems, and applying theoretical concepts to real-world situations.</p>
 
-  <p>I enjoy research and hands-on STEM projects, and I am comfortable working both independently and in collaborative environments. I have a keen eye for detail, a creative approach to challenges, and the ability to communicate ideas clearly, whether through writing, presentations, or mentoring.</p>
+        <p>I enjoy research and hands-on STEM projects, and I am comfortable working both independently and in collaborative environments. I have a keen eye for detail, a creative approach to challenges, and the ability to communicate ideas clearly, whether through writing, presentations, or mentoring.</p>
 
-  <p>Beyond academics, I am passionate about community engagement and nurturing young talent in STEM, combining leadership, curiosity, and perseverance in everything I do.</p>
-</div>
+        <p>Beyond academics, I am passionate about community engagement and nurturing young talent in STEM, combining leadership, curiosity, and perseverance in everything I do.</p>
 
-     
-      <a href="Ananya_Tyagi_CV.pdf" download class="download-btn">Download Full CV (PDF)</a>
+        <a href="Ananya_Tyagi_CV.pdf" download class="download-btn">Download Full CV (PDF)</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
+
+<script>
+  const links = document.querySelectorAll('nav a[href^="#"], nav a[href*=".html#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      if(href.includes("#")) { // only process links with anchors
+        const targetId = href.split("#")[1];
+        const target = document.getElementById(targetId);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // change URL in address bar without jumping
+          history.pushState(null, null, href);
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

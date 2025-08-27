@@ -13,17 +13,18 @@
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="research.html">Research</a>
-  <a href="internship.html">Internship</a>
-  <a href="skills.html">Skills</a>
-  <a href="extracurriculars.html">Extracurriculars</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html#about-me-content">Home / About Me</a>
+  <a href="education.html#education-content">Education</a>
+  <a href="research.html#research-content">Research</a>
+  <a href="internship.html#internship-content">Internship</a>
+  <a href="skills.html#skills-content">Skills</a>
+  <a href="extracurriculars.html#extracurriculars-content">Extracurriculars</a>
+  <a href="contact.html#contact-content">Contact</a>
 </nav>
 
 <main>
 <section class="pop-section">
+<main id="internship-content">
   <h2>Internship Experience</h2>
 
   <h3>Brillio – CSR Department Intern (2025)</h3>
@@ -36,9 +37,30 @@
     <li>Captured the spirit of events through photography, videography, and social media updates</li>
 
   </ul>
+</main>
 <p><em>Learned event coordination, content creation, adaptability, responsibility management, and effective collaboration. Highlighted resilience and creativity of students presenting impactful ideas.</em></p>
 </section>
 </main>
+<script>
+  const links = document.querySelectorAll('nav a[href^="#"], nav a[href*=".html#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      if(href.includes("#")) { // only process links with anchors
+        const targetId = href.split("#")[1];
+        const target = document.getElementById(targetId);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // change URL in address bar without jumping
+          history.pushState(null, null, href);
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -13,17 +13,18 @@
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="education.html">Education</a>
-  <a href="research.html">Research</a>
-  <a href="internship.html">Internship</a>
-  <a href="skills.html">Skills</a>
-  <a href="extracurriculars.html">Extracurriculars</a>
-  <a href="contact.html">Contact</a>
+  <a href="index.html#about-me-content">Home / About Me</a>
+  <a href="education.html#education-content">Education</a>
+  <a href="research.html#research-content">Research</a>
+  <a href="internship.html#internship-content">Internship</a>
+  <a href="skills.html#skills-content">Skills</a>
+  <a href="extracurriculars.html#extracurriculars-content">Extracurriculars</a>
+  <a href="contact.html#contact-content">Contact</a>
 </nav>
 
 <main>
 <section class="pop-section">
+<main id="research-content">
   <h2>Research / Projects</h2>
   <ul>
     <li><strong>Independent Researcher – Physics of Water Management, Chennai (2023)</strong>
@@ -55,8 +56,29 @@
       </ul>
     </li>
   </ul>
+</main>
 </section>
 </main>
+<script>
+  const links = document.querySelectorAll('nav a[href^="#"], nav a[href*=".html#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      
+      if(href.includes("#")) { // only process links with anchors
+        const targetId = href.split("#")[1];
+        const target = document.getElementById(targetId);
+        if(target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // change URL in address bar without jumping
+          history.pushState(null, null, href);
+        }
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
