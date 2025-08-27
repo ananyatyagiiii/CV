@@ -1,0 +1,125 @@
+/* ===== Global Styles ===== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  font-size: 18px; /* desktop default */
+}
+
+header {
+  background: #002366; /* darker professional blue */
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
+
+nav {
+  text-align: center;
+  background: #e6ecf5;
+  padding: 12px;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #002366;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+}
+
+/* ===== Headings ===== */
+h2 {
+  color: #002366;
+  border-bottom: 2px solid #002366;
+  padding-bottom: 6px;
+  margin-top: 20px;
+}
+
+/* ===== About Me Section ===== */
+.about-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap; /* allows stacking on mobile */
+}
+
+.profile-pic {
+  width: 40%; /* responsive width */
+  max-width: 250px; /* keeps image from being too big */
+  height: auto; /* maintains aspect ratio */
+  border-radius: 15%; /* rounded rectangle shape */
+  flex-shrink: 0;
+}
+
+.about-text {
+  flex: 1;
+}
+
+/* ===== Lists ===== */
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+/* ===== Buttons ===== */
+.download-btn {
+  display: inline-block;
+  background-color: #002366;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.download-btn:hover {
+  background-color: #00154d;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  body {
+    font-size: 20px; /* slightly larger text for mobile */
+  }
+
+  nav a {
+    display: block; /* stack navigation links vertically */
+    margin: 10px 0;
+  }
+
+  .about-container {
+    flex-direction: column; /* profile on top, text below */
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-pic {
+    width: 60%;
+    max-width: 200px;
+  }
+
+  .about-text {
+    flex: none;
+  }
+
+  main {
+    max-width: 95%; /* almost full screen */
+    padding: 15px;
+  }
+}
